@@ -327,10 +327,10 @@ let sumall = 0;
 
 
 function mouseUp(e){
-  document.removeEventListener('mousemove', move);
-  document.removeEventListener('mouseup', end);
-  document.removeEventListener('touchmove', move);
-  document.removeEventListener('touchend', end);
+  document.removeEventListener('mousemove', mouseMove);
+  document.removeEventListener('mouseup', mouseUp);
+  document.removeEventListener('touchmove', mouseUp);
+  document.removeEventListener('touchend', mouseMove);
 	//
 	//document.removeEventListener('mousemove',mouseMove)
 	Boxsp01.style.animation = `0.50s boxthrow steps(3)`;
