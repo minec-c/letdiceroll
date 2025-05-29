@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+	<meta charset="UTF-8" />
+	<head>
+				
+
+		<div class="Boxsp01">
+			<img class="Imgsp01" src="spdice64x64.png" draggable="false"/>
+		</div>
+
+		<div class="Boxtxt01	" style="white-space: pre-line;" > 
+			🕹️📏: a) 🎲=1✅ b) 🎲=5✅ c) 🎲=🎲=🎲✨ d) 2x🖱️🎲❔
+		</div>
+			<a href="#bottom">⬇️</a><div id="bottom">
+
+		<div class="Boxsp02">
+			<img class="Imgsp02" src="spdice64x64.png" draggable="false"/>
+		</div>
+
+		<div class="Boxsp03">
+			<img class="Imgsp03" src="spdice64x64.png" draggable="false"/>
+		</div>
+
+		<div class="Boxsp04">
+			<img class="Imgsp04" src="spdice64x64.png" draggable="false"/>
+		</div>
+
+
+
+		<style>
+			
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}https://github.com/minec-c/trinityrepo/blob/trinity/design/style7.css
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/*********************/
+
+:root {
+  --pixel-size: 8;
+	background: rgb(255,255,255);
+}
+
+body {
+  background: #96ffc1;
+}
+    .Boxsp01 {
+	width: calc(8px * var(--pixel-size));
+	height: calc(8px * var(--pixel-size));
+	overflow: hidden;
+	position: relative;
+	animation:  0.50s boxrotate steps(3) infinite ;
+    }
+	@keyframes boxrotate{
+		from{	transform:rotate(45deg);}
+		to{	transform:rotate(225deg);}
+	}
+	@keyframes boxthrow{
+		from{	transform:translate3d(0,0,0);}
+		to{	transform:translate3d(222px,222px,0);}
+	}
+.Imgsp04{
+	width: calc(24px * var(--pixel-size));
+	height: calc(16px * var(--pixel-size));
+	position:relative;
+	animation: animovesp01 0.75s steps(3) infinite , animovesp02 1.5s steps(2) infinite ;
+}
+.Imgsp03{
+	width: calc(24px * var(--pixel-size));
+	height: calc(16px * var(--pixel-size));
+	position:relative;
+	animation: animovesp01 0.75s steps(3) infinite , animovesp02 1.5s steps(2) infinite ;
+}
+.Imgsp02{
+	width: calc(24px * var(--pixel-size));
+	height: calc(16px * var(--pixel-size));
+	position:relative;
+	animation: animovesp01 0.75s steps(3) infinite , animovesp02 1.5s steps(2) infinite ;
+}
+.Imgsp01{
+	width: calc(24px * var(--pixel-size));
+	height: calc(16px * var(--pixel-size));
+	position:absolute;
+	animation: animovesp01 0.75s steps(3) infinite , animovesp02 1.5s steps(2) infinite ;
+}
+
+
+    @keyframes animovesp01 {
+	from { left: 0; }
+	to   { left: -192px; } /* 24px * 8px * 3 frames = 192px total shift */
+    }
+    @keyframes animovesp02 {
+	from { top: 1px; }
+	to   { top: -128px; }
+    }
+
+.Boxtxt01	{
+	position:relative;
+	left:300px;
+	white-space: pre-line;
+}
+
+.Boxsp02{
+
+	width: calc(8px * var(--pixel-size));
+	height: calc(8px * var(--pixel-size));
+	overflow: hidden;
+	animation:  0.50s boxrotate steps(3) infinite ;
+}
+.Boxsp03{
+
+	width: calc(8px * var(--pixel-size));
+	height: calc(8px * var(--pixel-size));
+	overflow: hidden;
+	animation:  0.50s boxrotate steps(3) infinite ;
+}
+
+.Boxsp04{
+
+	width: calc(8px * var(--pixel-size));
+	height: calc(8px * var(--pixel-size));
+	overflow: hidden;
+	animation:  0.50s boxrotate steps(3) infinite ;
+}
+
+	</style>
+
+
+
+	</head>
+
+
+
+
+	<body>
+
+
+
+	<script>
+let nx=0, ny=0, sx=0, sy=0;	//new start
+const Body = document.querySelector('body');
+const Boxtxt01	 = document.querySelector('.Boxtxt01');
+const Boxsp01 = document.querySelector('.Boxsp01');
+const Boxsp02 = document.querySelector('.Boxsp02');
+const Boxsp03 = document.querySelector('.Boxsp03');
+const Boxsp04 = document.querySelector('.Boxsp04');
+const Imgsp01 = document.querySelector('.Imgsp01');
+const Imgsp02 = document.querySelector('.Imgsp02');
+const Imgsp03 = document.querySelector('.Imgsp03');
+const Imgsp04 = document.querySelector('.Imgsp04');
+
+Boxsp01.addEventListener('mousedown',mouseDown)
+Boxsp02.addEventListener('mousedown',mouseDown)
+Boxsp03.addEventListener('mousedown',mouseDown)
+Boxsp04.addEventListener('mousedown',mouseDown)
+
+let counter=0;
+function mouseDown(e){
+	sx = e.clientX		//start
+	sy = e.clientY
+	document.addEventListener('mousemove',mouseMove)
+	document.addEventListener('mouseup',mouseUp)
+	Boxsp01.style.animation = `0.50s boxrotate steps(3) infinite`;
+	Boxsp02.style.animation = `0.50s boxrotate steps(3) infinite`;
+	Boxsp03.style.animation = `0.50s boxrotate steps(3) infinite`;
+	Boxsp04.style.animation = `0.50s boxrotate steps(3) infinite`;
+	if(sumall>500){
+		Boxtxt01.textContent+= sumall+"🏁🎉🎉🎇🎇🎆🎆🎊🎊 F5 to restart\n";
+		Body.style.background = `yellow`;
+		setInterval(() => { location.href = location.pathname + '?nocache=' + new Date().getTime(); }, 10000);
+	}
+	else{
+		//THREES
+		if( 	( (r1+1+r2*3)===(r3+1+r4*3) )&&( (r3+1+r4*3)===(r5+1+r6*3) )  )
+		{	counter+=1;
+			sumall += 10;
+			if(counter===1){ Boxtxt01.textContent+=	nthrow+String.fromCodePoint(0x2728)+String.fromCodePoint(0x1f3b2)+" Score:10"+" Total:"+sumall+"\n";
+			}
+		}
+		//THREES
+		else if(	( (r3+1+r4*3)===(r5+1+r6*3) )&&( (r5+1+r6*3)===(r7+1+r8*3) )  )
+		{	counter+=1;
+			sumall += 10;
+			if(counter===1){ Boxtxt01.textContent+=	nthrow+String.fromCodePoint(0x2728)+String.fromCodePoint(0x1f3b2)+" Score:10"+" Total:"+sumall+"\n";
+			}
+		}
+		//THREES
+		else if(	( (r1+1+r2*3)===(r5+1+r6*3) )&&( (r5+1+r6*3)===(r7+1+r8*3) )  )
+		{	counter+=1;
+			sumall += 10;
+			if(counter===1){ Boxtxt01.textContent+=	nthrow+String.fromCodePoint(0x2728)+String.fromCodePoint(0x1f3b2)+" Score:10"+" Total:"+sumall+"\n";
+			}
+		}
+		//THREES
+		else if(	( (r5+1+r6*3)===(r7+1+r8*3) )&&( (r7+1+r8*3)===(r1+1+r2*3) )  )
+		{	counter+=1;
+			sumall += 10;
+			if(counter===1){ Boxtxt01.textContent+=	nthrow+String.fromCodePoint(0x2728)+String.fromCodePoint(0x1f3b2)+" Score:10"+" Total:"+sumall+"\n";
+			}
+		}
+		//THREES
+		else if(	( (r1+1+r2*3)===(r5+1+r6*3) )&&( (r5+1+r6*3)===(r7+1+r8*3) ) )
+		{	counter+=1;
+			sumall += 10;
+			if(counter===1){ Boxtxt01.textContent+=	nthrow+String.fromCodePoint(0x2728)+String.fromCodePoint(0x1f3b2)+" Score:10"+" Total:"+sumall+"\n";
+			}
+		}
+		/////////////	/////////////	/////////////	/////////////	/////////////	/////////////	/////////////	/////////////	/////////////	/////////////	/////////////	/////////////	/////////////
+		//TWO EQUAL, TWO EQUAL
+		else if(	( (r1+1+r2*3)===(r3+1+r4*3) )&&( (r5+1+r6*3)===(r7+1+r8*3) ) )
+		{	counter+=1;
+			sumall += 10;
+			if(counter===1){ Boxtxt01.textContent+=	nthrow+String.fromCodePoint(0x2728)+String.fromCodePoint(0x1f929)+" Score:10"+" Total:"+sumall+"\n";
+			}
+		}
+		//TWO EQUAL, TWO EQUAL
+		else if(	( (r3+1+r4*3)===(r1+1+r2*3) )&&( (r7+1+r8*3)===(r5+1+r6*3) ) )
+		{	counter+=1;
+			sumall += 10;
+			if(counter===1){ Boxtxt01.textContent+=	nthrow+String.fromCodePoint(0x2728)+String.fromCodePoint(0x1f929)+" Score:10"+" Total:"+sumall+"\n";
+			}
+		}
+		//TWO EQUAL, TWO EQUAL
+		else if(	 ( (r1+1+r2*3)===(r7+1+r8*3) )&&( (r3+1+r4*3)===(r5+1+r6*3) ) )
+		{	counter+=1;
+			sumall += 10;
+			if(counter===1){ Boxtxt01.textContent+=	nthrow+String.fromCodePoint(0x2728)+String.fromCodePoint(0x1f929)+" Score:10"+" Total:"+sumall+"\n";
+			}
+		}
+		//TWO EQUAL, TWO EQUAL
+		else if(	 ( (r1+1+r2*3)===(r7+1+r8*3) )&&( (r5+1+r6*3)===(r3+1+r4*3) ) )
+		{	counter+=1;
+			sumall += 10;
+			if(counter===1){ Boxtxt01.textContent+=	nthrow+String.fromCodePoint(0x2728)+String.fromCodePoint(0x1f929)+" Score:10"+" Total:"+sumall+"\n";
+			}
+		}
+	}
+}
+function mouseMove(e){
+	counter=0;
+	nx = sx - e.clientX 	//new
+	ny = sy - e.clientY
+	sx = e.clientX		//start
+	sy = e.clientY
+	Boxsp01.style.top = (Boxsp01.offsetTop - ny) + 'px'
+	Boxsp01.style.left = (Boxsp01.offsetLeft - nx) + 'px'
+	Boxsp02.style.top = (Boxsp02.offsetTop - ny) + 'px'
+	Boxsp02.style.left = (Boxsp02.offsetLeft - nx) + 'px'
+	Boxsp03.style.top = (Boxsp03.offsetTop - ny) + 'px'
+	Boxsp03.style.left = (Boxsp03.offsetLeft - nx) + 'px'
+	Boxsp04.style.top = (Boxsp03.offsetTop - ny) + 'px'
+	Boxsp04.style.left = (Boxsp03.offsetLeft - nx) + 'px'
+	bool01= true;
+}
+let arr01 = [`0px`,`-64px`,`-128px`];	//array
+let arr02 = [`1px`,`-64px`];
+let r1=0,r2=0;				//random
+
+let arr03 = [`0px`,`-64px`,`-128px`];
+let arr04 = [`1px`,`-64px`];
+let r3=0,r4=0;
+
+let arr05 = [`0px`,`-64px`,`-128px`];
+let arr06 = [`1px`,`-64px`];
+let r5=0,r6=0;
+
+let arr07 = [`0px`,`-64px`,`-128px`];
+let arr08 = [`1px`,`-64px`];
+let r7=0,r8=0;
+
+let bool01 = false;
+let nthrow = 0;
+let sumall = 0;
+
+
+function mouseUp(e){
+	document.removeEventListener('mousemove',mouseMove)
+	Boxsp01.style.animation = `0.50s boxthrow steps(3)`;
+	Boxsp02.style.animation = `0.50s boxthrow steps(3)`;
+	Boxsp03.style.animation = `0.50s boxthrow steps(3)`;
+	Boxsp04.style.animation = `0.50s boxthrow steps(3)`;
+	Imgsp01.style.animation = ` 0.75s animovesp01 steps(3), animovesp02 1.5s steps(2)`;
+	Imgsp02.style.animation = ` 0.75s animovesp01 steps(3), animovesp02 1.5s steps(2)`;
+	Imgsp03.style.animation = ` 0.75s animovesp01 steps(3), animovesp02 1.5s steps(2)`;
+	Imgsp04.style.animation = ` 0.75s animovesp01 steps(3), animovesp02 1.5s steps(2)`;
+	if(bool01){
+		counter=0;
+		console.log(counter);
+		nthrow+=1;
+		r1 = Math.floor(Math.random()*arr01.length);
+		r2 = Math.floor(Math.random()*arr02.length);
+		r3 = Math.floor(Math.random()*arr03.length);
+		r4 = Math.floor(Math.random()*arr04.length);
+		r5 = Math.floor(Math.random()*arr05.length);
+		r6 = Math.floor(Math.random()*arr06.length);
+		r7 = Math.floor(Math.random()*arr05.length);
+		r8 = Math.floor(Math.random()*arr06.length);
+		//sumall += (r1+1+r2*3+r3+1+r4*3+r5+1+r6*3);
+		Imgsp01.style.left =arr01[r1];
+		Imgsp01.style.top  =arr02[r2];
+		Imgsp02.style.left =arr03[r3];
+		Imgsp02.style.top  =arr04[r4];
+		Imgsp03.style.left =arr05[r5];
+		Imgsp03.style.top  =arr06[r6];
+		Imgsp04.style.left =arr07[r7];
+		Imgsp04.style.top  =arr08[r8];
+		if(sumall>500){
+			Boxtxt01.textContent+= sumall+"🏁🎉🎉🎇🎇🎆🎆🎊🎊	F5 to restart \n";
+			Body.style.background = `yellow`;
+			setInterval(() => { location.href = location.pathname + '?nocache=' + new Date().getTime(); }, 10000);
+		}
+		else{
+			if ( (r1+1+r2*3)===1 || (r1+1+r2*3)===5  || 
+				(r3+1+r4*3)===1 || (r3+1+r4*3)===5  || 
+				(r5+1+r6*3)===1 || (r5+1+r6*3)===5  ||
+				(r7+1+r8*3)===1 || (r7+1+r8*3)===5	)
+			{
+				//Boxtxt01.textContent+= "Throw: "+nthrow+" | ";//+(r1+1+r2*3)+"+"	+(r3+1+r4*3)+"+"  +(r5+1+r6*3)+" SUM:"+(r1+1+r2*3+r3+1+r4*3+r5+1+r6*3)+ "	SumAll:"+sumall+"\n";
+				if( (r1+1+r2*3)===1 || (r1+1+r2*3)===5 ){
+					sumall += (r1+1+r2*3);
+					Boxtxt01.textContent+=	nthrow+String.fromCodePoint(0x1faf3)+String.fromCodePoint(0x1f3b2)+" Score:"+(r1+1+r2*3)+" Total:"+sumall+"\n";
+				}
+				if( (r3+1+r4*3)===1 || (r3+1+r4*3)===5 ){
+					sumall += (r3+1+r4*3);
+					Boxtxt01.textContent+=	nthrow+String.fromCodePoint(0x1faf3)+String.fromCodePoint(0x1f3b2)+" Score:"+(r3+1+r4*3)+" Total:"+sumall+"\n";
+				}
+				if( (r5+1+r6*3)===1 || (r5+1+r6*3)===5 ){
+					sumall += (r5+1+r6*3);
+					Boxtxt01.textContent+=	nthrow+String.fromCodePoint(0x1faf3)+String.fromCodePoint(0x1f3b2)+" Score:"+(r5+1+r6*3)+" Total:"+sumall+"\n";
+				}
+				if( (r7+1+r8*3)===1 || (r7+1+r8*3)===5 ){
+					sumall += (r7+1+r8*3);
+					Boxtxt01.textContent+=	nthrow+String.fromCodePoint(0x1faf3)+String.fromCodePoint(0x1f3b2)+" Score:"+(r7+1+r8*3)+" Total:"+sumall+"\n";
+				}
+			}
+			else{ 
+				if( (	(r1+1+r2*3)===(r3+1+r4*3) || 
+					(r1+1+r2*3)===(r5+1+r6*3) ||
+					(r1+1+r2*3)===(r7+1+r8*3) )&&(
+						(r3+1+r4*3)===(r5+1+r6*3) ||
+							(r3+1+r4*3)===(r7+1+r8*3) )&&(
+								(r7+1+r8*3)===(r5+1+r6*3)  )	)
+				{
+					sumall -= 100;
+					Boxtxt01.textContent+= nthrow+String.fromCodePoint(0x1faf3)+String.fromCodePoint(0x1f3b2)+String.fromCodePoint(0x274c)+ "Total:"+sumall+"\n";
+					setInterval(() => {Body.style.background = `#96ffc1`}, 2000);
+					Body.style.background = `red`;
+				
+				}
+			}
+
+			bool01=false;
+		}
+	}
+}
+	let hex = "💫".codePointAt(0).toString(16); //1f4ab starfly		1faf3magic	2705 checked
+	let hex2 = "🎲".codePointAt(0).toString(16); //1f3b2dice
+	let emoji = String.fromCodePoint("0x"+hex);
+	let emoji2 = String.fromCodePoint("0x"+hex2);
+	console.log(hex,emoji, hex2,emoji2);
+
+	</script>
+	</body>
+</html>
+
