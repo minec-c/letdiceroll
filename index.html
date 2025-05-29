@@ -277,6 +277,90 @@ function mouseDown(e){
 		}
 	}
 }
+function touchStart(e) {
+  const touch = e.touches[0];
+  sx = touch.clientX; // start x
+  sy = touch.clientY; // start y
+
+  document.addEventListener('touchmove', touchMove);
+  document.addEventListener('touchend', touchEnd);
+
+	Boxsp01.style.animation = `0.50s boxrotate steps(3) infinite`;
+	Boxsp02.style.animation = `0.50s boxrotate steps(3) infinite`;
+	Boxsp03.style.animation = `0.50s boxrotate steps(3) infinite`;
+	Boxsp04.style.animation = `0.50s boxrotate steps(3) infinite`;
+	if(sumall>500){
+		Boxtxt01.textContent+= sumall+"🏁🎉🎉🎇🎇🎆🎆🎊🎊 F5 to restart\n";
+		Body.style.background = `yellow`;
+		setInterval(() => { location.href = location.pathname + '?nocache=' + new Date().getTime(); }, 10000);
+	}
+	else{
+		//THREES
+		if( 	( (r1+1+r2*3)===(r3+1+r4*3) )&&( (r3+1+r4*3)===(r5+1+r6*3) )  )
+		{	counter+=1;
+			sumall += 10;
+			if(counter===1){ Boxtxt01.textContent+=	nthrow+String.fromCodePoint(0x2728)+String.fromCodePoint(0x1f3b2)+" Score:10"+" Total:"+sumall+"\n";
+			}
+		}
+		//THREES
+		else if(	( (r3+1+r4*3)===(r5+1+r6*3) )&&( (r5+1+r6*3)===(r7+1+r8*3) )  )
+		{	counter+=1;
+			sumall += 10;
+			if(counter===1){ Boxtxt01.textContent+=	nthrow+String.fromCodePoint(0x2728)+String.fromCodePoint(0x1f3b2)+" Score:10"+" Total:"+sumall+"\n";
+			}
+		}
+		//THREES
+		else if(	( (r1+1+r2*3)===(r5+1+r6*3) )&&( (r5+1+r6*3)===(r7+1+r8*3) )  )
+		{	counter+=1;
+			sumall += 10;
+			if(counter===1){ Boxtxt01.textContent+=	nthrow+String.fromCodePoint(0x2728)+String.fromCodePoint(0x1f3b2)+" Score:10"+" Total:"+sumall+"\n";
+			}
+		}
+		//THREES
+		else if(	( (r5+1+r6*3)===(r7+1+r8*3) )&&( (r7+1+r8*3)===(r1+1+r2*3) )  )
+		{	counter+=1;
+			sumall += 10;
+			if(counter===1){ Boxtxt01.textContent+=	nthrow+String.fromCodePoint(0x2728)+String.fromCodePoint(0x1f3b2)+" Score:10"+" Total:"+sumall+"\n";
+			}
+		}
+		//THREES
+		else if(	( (r1+1+r2*3)===(r5+1+r6*3) )&&( (r5+1+r6*3)===(r7+1+r8*3) ) )
+		{	counter+=1;
+			sumall += 10;
+			if(counter===1){ Boxtxt01.textContent+=	nthrow+String.fromCodePoint(0x2728)+String.fromCodePoint(0x1f3b2)+" Score:10"+" Total:"+sumall+"\n";
+			}
+		}
+		/////////////	/////////////	/////////////	/////////////	/////////////	/////////////	/////////////	/////////////	/////////////	/////////////	/////////////	/////////////	/////////////
+		//TWO EQUAL, TWO EQUAL
+		else if(	( (r1+1+r2*3)===(r3+1+r4*3) )&&( (r5+1+r6*3)===(r7+1+r8*3) ) )
+		{	counter+=1;
+			sumall += 10;
+			if(counter===1){ Boxtxt01.textContent+=	nthrow+String.fromCodePoint(0x2728)+String.fromCodePoint(0x1f929)+" Score:10"+" Total:"+sumall+"\n";
+			}
+		}
+		//TWO EQUAL, TWO EQUAL
+		else if(	( (r3+1+r4*3)===(r1+1+r2*3) )&&( (r7+1+r8*3)===(r5+1+r6*3) ) )
+		{	counter+=1;
+			sumall += 10;
+			if(counter===1){ Boxtxt01.textContent+=	nthrow+String.fromCodePoint(0x2728)+String.fromCodePoint(0x1f929)+" Score:10"+" Total:"+sumall+"\n";
+			}
+		}
+		//TWO EQUAL, TWO EQUAL
+		else if(	 ( (r1+1+r2*3)===(r7+1+r8*3) )&&( (r3+1+r4*3)===(r5+1+r6*3) ) )
+		{	counter+=1;
+			sumall += 10;
+			if(counter===1){ Boxtxt01.textContent+=	nthrow+String.fromCodePoint(0x2728)+String.fromCodePoint(0x1f929)+" Score:10"+" Total:"+sumall+"\n";
+			}
+		}
+		//TWO EQUAL, TWO EQUAL
+		else if(	 ( (r1+1+r2*3)===(r7+1+r8*3) )&&( (r5+1+r6*3)===(r3+1+r4*3) ) )
+		{	counter+=1;
+			sumall += 10;
+			if(counter===1){ Boxtxt01.textContent+=	nthrow+String.fromCodePoint(0x2728)+String.fromCodePoint(0x1f929)+" Score:10"+" Total:"+sumall+"\n";
+			}
+		}
+	}
+}
 function mouseMove(e){
 	counter=0;
 	nx = sx - e.clientX 	//new
