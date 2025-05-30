@@ -438,7 +438,8 @@ function mouseUp(e){
     function preventLongPressMenu(node) {
       node.ontouchstart = absorbEvent_;
       node.ontouchmove = absorbEvent_;
-      node.ontouchend = absorbEvent_;
+      //node.ontouchend = absorbEvent_;
+	node.ontouchend =node.onclick;
       node.ontouchcancel = absorbEvent_;
     }
 
