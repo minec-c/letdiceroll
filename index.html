@@ -438,35 +438,54 @@ function mouseUp(e){
 }
 
 
+ const img = document.querySelector('Boxsp01');
+
+  let holdTimer = null;
+  let dragging = false;
+  let startX = 0, startY = 0;
+
+  function touchStart(e) {
+    if (e.touches.length > 1) return; // Ignore multi-touch
+    const touch = e.touches[0];
+    startX = touch.clientX;
+    startY = touch.clientY;
+
+    holdTimer = setTimeout(() => {
+      dragging = true;
+    }, 300); // Hold duration to start drag
+
+    e.preventDefault();
+  }
+
+  function touchMove(e) {
+    if (!dragging) return;
+
+    const touch = e.touches[0];
+    const dx = touch.clientX - startX;
+    const dy = touch.clientY - startY;
+
+    const rect = img.getBoundingClientRect();
+    img.style.left = rect.left + dx + "px";
+    img.style.top = rect.top + dy + "px";
+
+    startX = touch.clientX;
+    startY = touch.clientY;
+
+    e.preventDefault();
+  }
+
+  function touchEnd(e) {
+    clearTimeout(holdTimer);
+    dragging = false;
+  }
+
+  img.addEventListener("touchstart", touchStart);
+  img.addEventListener("touchmove", touchMove);
+  img.addEventListener("touchend", touchEnd);
+  img.addEventListener("touchcancel", touchEnd);
 
 
- //    function absorbEvent_(event) {
- //      var e = event || window.event;
- //      e.preventDefault && e.preventDefault();
- //      e.stopPropagation && e.stopPropagation();
- //      e.cancelBubble = true;
- //      e.returnValue = false;
- //      return false;
- //    }
 
- //    function preventLongPressMenu(node) {
- //      node.ontouchstart = absorbEvent_;
- //      node.ontouchmove = absorbEvent_;
- //      //node.ontouchend = absorbEvent_;
-	// node.ontouchend =node.onclick;
- //      node.ontouchcancel = absorbEvent_;
- //    }
-
- //    function init() {
- //      	preventLongPressMenu(Boxsp01);
- //      	preventLongPressMenu(Boxsp02);
- //      	preventLongPressMenu(Boxsp03);
- //      	preventLongPressMenu(Boxsp04);
-	// preventLongPressMenu(Imgsp01);
-	// preventLongPressMenu(Imgsp02);
-	// preventLongPressMenu(Imgsp03);
-	// preventLongPressMenu(Imgsp04);
- //    }
 	</script>
 	</body>
 </html>
