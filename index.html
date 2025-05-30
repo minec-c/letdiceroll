@@ -93,6 +93,7 @@ body {
 	animation:  0.50s boxrotate steps(3) infinite ;
 	touch-action:none;
 	user-select: none;
+        -webkit-user-select: none;
 	-webkit-touch-callout:none;
 	-webkit-user-drag: none;
     }
@@ -111,6 +112,7 @@ body {
 	animation: animovesp01 0.75s steps(3) infinite , animovesp02 1.5s steps(2) infinite ;
 	touch-action:none;
 	user-select: none;
+	-webkit-user-select: none;
 	-webkit-touch-callout:none;
 }
 .Imgsp03{
@@ -120,6 +122,7 @@ body {
 	animation: animovesp01 0.75s steps(3) infinite , animovesp02 1.5s steps(2) infinite ;
 	touch-action:none;
 	user-select: none;
+	-webkit-user-select: none;
 	-webkit-touch-callout:none;
 }
 .Imgsp02{
@@ -129,6 +132,7 @@ body {
 	animation: animovesp01 0.75s steps(3) infinite , animovesp02 1.5s steps(2) infinite ;
 	touch-action:none;
 	user-select: none;
+	-webkit-user-select: none;
 	-webkit-touch-callout:none;
 }
 .Imgsp01{
@@ -138,6 +142,7 @@ body {
 	animation: animovesp01 0.75s steps(3) infinite , animovesp02 1.5s steps(2) infinite ;
 	touch-action:none;
 	user-select: none;
+	-webkit-user-select: none;
 	-webkit-touch-callout:none;
 }
 
@@ -157,6 +162,7 @@ body {
 	white-space: pre-line;
 	touch-action:none;
 	user-select: none;
+	-webkit-user-select: none;
 	-webkit-touch-callout:none;
 }
 
@@ -168,6 +174,7 @@ body {
 	animation:  0.50s boxrotate steps(3) infinite ;
 	touch-action:none;
 	user-select: none;
+	-webkit-user-select: none;
 	-webkit-touch-callout:none;
 }
 .Boxsp03{
@@ -178,6 +185,7 @@ body {
 	animation:  0.50s boxrotate steps(3) infinite ;
 	touch-action:none;
 	user-select: none;
+	-webkit-user-select: none;
 	-webkit-touch-callout:none;
 }
 
@@ -189,7 +197,9 @@ body {
 	animation:  0.50s boxrotate steps(3) infinite ;
 	touch-action:none;
 	user-select: none;
+	-webkit-user-select: none;
 	-webkit-touch-callout:none;
+	
 }
 
 	</style>
@@ -426,33 +436,33 @@ function mouseUp(e){
 
 
 
-    function absorbEvent_(event) {
-      var e = event || window.event;
-      e.preventDefault && e.preventDefault();
-      e.stopPropagation && e.stopPropagation();
-      e.cancelBubble = true;
-      e.returnValue = false;
-      return false;
-    }
+ //    function absorbEvent_(event) {
+ //      var e = event || window.event;
+ //      e.preventDefault && e.preventDefault();
+ //      e.stopPropagation && e.stopPropagation();
+ //      e.cancelBubble = true;
+ //      e.returnValue = false;
+ //      return false;
+ //    }
 
-    function preventLongPressMenu(node) {
-      node.ontouchstart = absorbEvent_;
-      node.ontouchmove = absorbEvent_;
-      //node.ontouchend = absorbEvent_;
-	node.ontouchend =node.onclick;
-      node.ontouchcancel = absorbEvent_;
-    }
+ //    function preventLongPressMenu(node) {
+ //      node.ontouchstart = absorbEvent_;
+ //      node.ontouchmove = absorbEvent_;
+ //      //node.ontouchend = absorbEvent_;
+	// node.ontouchend =node.onclick;
+ //      node.ontouchcancel = absorbEvent_;
+ //    }
 
-    function init() {
-      	preventLongPressMenu(Boxsp01);
-      	preventLongPressMenu(Boxsp02);
-      	preventLongPressMenu(Boxsp03);
-      	preventLongPressMenu(Boxsp04);
-	preventLongPressMenu(Imgsp01);
-	preventLongPressMenu(Imgsp02);
-	preventLongPressMenu(Imgsp03);
-	preventLongPressMenu(Imgsp04);
-    }
+ //    function init() {
+ //      	preventLongPressMenu(Boxsp01);
+ //      	preventLongPressMenu(Boxsp02);
+ //      	preventLongPressMenu(Boxsp03);
+ //      	preventLongPressMenu(Boxsp04);
+	// preventLongPressMenu(Imgsp01);
+	// preventLongPressMenu(Imgsp02);
+	// preventLongPressMenu(Imgsp03);
+	// preventLongPressMenu(Imgsp04);
+ //    }
 	</script>
 	</body>
 </html>
